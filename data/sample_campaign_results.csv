@@ -1,0 +1,23 @@
+campaign,metric,segment,group,n,success
+Spring Milk Campaign,Purchase Intent,Total,Control,400,180
+Spring Milk Campaign,Purchase Intent,Total,Treatment,400,220
+Spring Milk Campaign,Purchase Intent,Female,Control,210,98
+Spring Milk Campaign,Purchase Intent,Female,Treatment,205,122
+Spring Milk Campaign,Purchase Intent,Male,Control,190,82
+Spring Milk Campaign,Purchase Intent,Male,Treatment,195,98
+Spring Milk Campaign,Purchase Intent,Age 18-24,Control,120,50
+Spring Milk Campaign,Purchase Intent,Age 18-24,Treatment,125,72
+Spring Milk Campaign,Purchase Intent,Age 25-34,Control,160,76
+Spring Milk Campaign,Purchase Intent,Age 25-34,Treatment,155,88
+Spring Milk Campaign,Ad Recall,Total,Control,400,120
+Spring Milk Campaign,Ad Recall,Total,Treatment,400,176
+Spring Milk Campaign,Ad Recall,Female,Control,210,67
+Spring Milk Campaign,Ad Recall,Female,Treatment,205,98
+Spring Milk Campaign,Ad Recall,Male,Control,190,53
+Spring Milk Campaign,Ad Recall,Male,Treatment,195,78
+Spring Milk Campaign,Brand Favorability,Total,Control,400,240
+Spring Milk Campaign,Brand Favorability,Total,Treatment,400,268
+Spring Milk Campaign,Brand Favorability,Female,Control,210,130
+Spring Milk Campaign,Brand Favorability,Female,Treatment,205,143
+Spring Milk Campaign,Brand Favorability,Male,Control,190,110
+Spring Milk Campaign,Brand Favorability,Male,Treatment,195,125

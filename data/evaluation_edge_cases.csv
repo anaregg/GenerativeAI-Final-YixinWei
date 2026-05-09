@@ -1,0 +1,19 @@
+campaign,metric,segment,group,n,success
+Landing Page Retargeting Campaign,Purchase Intent,Total,Control,500,230
+Landing Page Retargeting Campaign,Purchase Intent,Total,Treatment,500,238
+Landing Page Retargeting Campaign,Purchase Intent,Age 18-24,Control,40,18
+Landing Page Retargeting Campaign,Purchase Intent,Age 18-24,Treatment,38,25
+Landing Page Retargeting Campaign,Purchase Intent,Age 35-44,Control,180,90
+Landing Page Retargeting Campaign,Purchase Intent,Age 35-44,Treatment,175,86
+Landing Page Retargeting Campaign,Ad Recall,Total,Control,500,150
+Landing Page Retargeting Campaign,Ad Recall,Total,Treatment,500,148
+Landing Page Retargeting Campaign,Ad Recall,Returning Customers,Control,60,20
+Landing Page Retargeting Campaign,Ad Recall,Returning Customers,Treatment,58,32
+Landing Page Retargeting Campaign,Ad Recall,New Customers,Control,440,130
+Landing Page Retargeting Campaign,Ad Recall,New Customers,Treatment,442,116
+Landing Page Retargeting Campaign,Brand Trust,Total,Control,500,310
+Landing Page Retargeting Campaign,Brand Trust,Total,Treatment,500,280
+Landing Page Retargeting Campaign,Brand Trust,Female,Control,250,160
+Landing Page Retargeting Campaign,Brand Trust,Female,Treatment,248,140
+Landing Page Retargeting Campaign,Brand Trust,Male,Control,250,150
+Landing Page Retargeting Campaign,Brand Trust,Male,Treatment,252,140
