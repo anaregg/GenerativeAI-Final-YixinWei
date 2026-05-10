@@ -51,30 +51,79 @@ Each campaign + metric + segment combination must have exactly one `Control` row
 
 ## Artifact Snapshot
 
-The Streamlit app includes:
-- a file upload / sample data loader
-- input validation messages
-- selected result summary cards
-- Treatment vs Control rate chart
-- lift by segment chart
-- confidence interval chart
-- warning and human review notes
-- optional LLM interpretation memo
+The app provides a compact workflow for turning a standardized campaign summary CSV into an interpretation-ready dashboard and memo.
 
-## Baseline Comparison
+### 1. Upload or Load Sample Data
 
-The baseline workflow is spreadsheet-based. An analyst manually prepares a summary table, calculates control/treatment rates, calculates lift, checks significance manually or skips it, creates charts, and writes a memo.
+The user can upload a campaign summary CSV or load the included sample file.
 
-This app improves consistency by packaging validation, statistical calculation, visualization, rule-based warnings, and optional memo generation into one workflow.
+![Upload start screen](screenshots/01-upload-start-screen.png)
 
-## Evaluation
+### 2. Selected Result Summary
 
-The app was evaluated with:
+After validation and calculation, the app shows the selected campaign, metric, and segment with key statistics such as control rate, treatment rate, absolute lift, relative lift, and p-value.
 
-- `data/sample_campaign_results.csv`: standard campaign results with positive and directional effects.
-- `data/evaluation_edge_cases.csv`: small samples, weak effects, negative directional effects, and mixed segment results.
+![Selected result summary](screenshots/02-selected-result-summary.png)
 
-Evaluation criteria include calculation correctness, visualization usefulness, memo faithfulness, decision caution, and actionability.
+### 3. Charts
+
+The app visualizes Treatment vs Control rate, lift by segment, and confidence intervals.
+
+![Rate and lift charts](screenshots/03-rate-and-lift-charts.png)
+
+![Confidence interval and warnings](screenshots/04-confidence-interval-and-warnings.png)
+
+### 4. LLM Interpretation Memo
+
+The optional memo feature generates a concise analyst-facing interpretation based only on computed results.
+
+![LLM interpretation memo](screenshots/05-llm-interpretation-memo.png)
+
+### Example Input
+
+```
+csv
+campaign,metric,segment,group,n,success
+Spring Milk Campaign,Purchase Intent,Total,Control,400,180
+Spring Milk Campaign,Purchase Intent,Total,Treatment,400,220
+```
+
+## Baseline Comparison and Evaluation Results
+
+### Baseline Workflow
+
+The baseline is a spreadsheet-based workflow. In this workflow, a junior analyst manually prepares the summary table, calculates control and treatment rates, calculates lift, checks statistical significance manually or skips it, creates charts, and writes a short memo.
+
+This baseline is realistic because campaign lift results are often reviewed in Excel or Google Sheets before being turned into a report. However, the manual workflow can be inconsistent. Analysts may forget to check sample size, overstate directional results, or write a memo that does not clearly separate statistically significant findings from directional-only patterns.
+
+### Evaluation Design
+
+I evaluated the app against this spreadsheet baseline using two standardized CSV files:
+
+| Test file | Purpose | Expected behavior |
+|---|---|---|
+| `data/sample_campaign_results.csv` | Main demo case with clear positive and directional campaign effects | The app should calculate lift correctly, identify significant positive results, visualize segment patterns, and generate a grounded memo. |
+| `data/evaluation_edge_cases.csv` | Edge-case file with small samples, weak effects, negative directional effects, and mixed segment results | The app should flag risky results, avoid overstating weak findings, and show where human review is needed. |
+
+The evaluation used five criteria:
+
+| Criterion | What I checked |
+|---|---|
+| Calculation correctness | Whether rates, lift, p-values, and confidence intervals were calculated consistently from the summary data. |
+| Visualization usefulness | Whether the charts made treatment/control differences, segment patterns, and uncertainty easier to inspect. |
+| Memo faithfulness | Whether the LLM memo stayed grounded in computed results instead of inventing unsupported findings. |
+| Decision caution | Whether the app separated statistically significant results from directional or risky results. |
+| Actionability | Whether the output helped an analyst decide what could be reported and what needed further review. |
+
+### Findings
+
+The app performed best when the input followed the standardized summary-level format. Compared with the spreadsheet baseline, it made the workflow more consistent by combining validation, lift calculation, confidence intervals, rule-based warnings, charts, and memo generation in one place.
+
+For the main sample file, the app correctly highlighted a significant positive lift in Purchase Intent and showed which segments were statistically significant versus directional only. The charts made the segment-level pattern easier to understand than a raw spreadsheet table.
+
+For the edge-case file, the app was useful because it did not treat every positive or negative movement as a strong finding. Small samples and non-significant results were flagged for caution, which supports the human review requirement.
+
+The main limitation is that the app does not replace analyst judgment. It does not process raw survey data, verify the original research design, or prove causality. The LLM memo is useful as a first-draft interpretation, but a human analyst still needs to review sample quality, test design, and business context before using the result in a final report.
 
 ## Setup
 
